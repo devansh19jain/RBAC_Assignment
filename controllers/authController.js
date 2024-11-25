@@ -5,7 +5,7 @@ const prisma = new PrismaClient();
 require('dotenv').config();
 
 const handleLogin = async (req, res) => {
-    const { email, pwd } = req.body;
+    const { email, pwd, role } = req.body;
     if (!email || !pwd) return res.status(400).json({ 'message': 'Username and password are required.' });
     const foundUser = await prisma.user.findUnique({
         where: {
@@ -17,7 +17,7 @@ const handleLogin = async (req, res) => {
     const match = await bcrypt.compare(pwd, foundUser.password);
     
     if (match) {
-        const roles = Object.values(foundUser.role)
+        const roles = foundUser.role
         const user_id = foundUser.id
         const userName = foundUser.name;
         const gender = foundUser.gender;

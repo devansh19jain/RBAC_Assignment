@@ -32,5 +32,6 @@ app.use(errorHandler);
 
 app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth'));
+app.use('/rbac', require('./routes/rbac'));
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
