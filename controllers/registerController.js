@@ -12,7 +12,7 @@ const handleNewUser = async (req, res) => {
         console.log(name, email, pwd);
 
         // store the new user
-        const newUser = await prisma.user.create({
+        const newUser = await prisma.User.create({
             data: {
                 name:name,
                 email: email,
