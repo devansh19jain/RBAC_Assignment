@@ -33,5 +33,6 @@ app.use(errorHandler);
 app.use('/register', require('./routes/register'));
 app.use('/auth', require('./routes/auth'));
 app.use('/rbac', require('./routes/rbac'));
+app.use('/logout', require('./routes/logout'));
 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
